@@ -1,1 +1,0 @@
-'web: hello --port=$PORT'

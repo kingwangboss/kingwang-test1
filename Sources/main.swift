@@ -3,7 +3,7 @@ import PerfectHTTP
 import PerfectHTTPServer
 
 let server = HTTPServer()
-server.serverPort = 8080
+server.serverPort = 8181
 server.documentRoot = "webroot"
 
 var routes = Routes()
@@ -17,8 +17,8 @@ routes.add(method: .get, uri: "/", handler: {
 func returnJSONMessage(message:String,response:HTTPResponse) {
     do{
         try response.setBody(json: ["message" : message])
-            response.setHeader(.contentType, value: "application/json")
-            response.completed()
+        response.setHeader(.contentType, value: "application/json")
+        response.completed()
     }catch{
         response.setBody(string: "Error handling request:\(error)")
         response.completed()
